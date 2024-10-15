@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WORD STATS</title>
+    </head>
+    <body>
+        <form method="post" enctype="multipart/form-data" action="/stats_present">
+            <p>ПРЕЗЕНТАЦИЯ - только русский язык</p>
+            Лемматизировать?: <input type="checkbox" name="lemma" onclick="showLemmaIndex(this)"/>
+            <br/>
+            <div id="subLemma" style="display: none">В подсчете КЛР учитывать только леммы?:<input type="checkbox" name="lemmaIndex" id="lemmaIndex"/></div>
+            <br/>
+            <div>В подсчете КЛР НЕ учитывать орфографические ошибки(ПРОСТО НАБОР ИЗ БУКВ БУДЕТ ВОСПРИНИМАТЬСЯ КАК НЕИЗВЕСТНОЕ НО СУЩЕСТВУЮЩЕЕ СЛОВО)?:<input type="checkbox" name="mistakeIndex"/></div>
+            <br/>
+            <div>Сколько последних слов используется для подсчета КЛР?:<input type="number" name="number"/></div>
+            <br/>
+            <textarea name="text"></textarea>
+            <br/>
+            <button type="submit">Анализировать</button>
+        </form>
+        <script>
+            function showLemmaIndex(el) {
+                if (el.checked) {
+                    subLemma.style.display = 'block';
+                }
+                else {
+                    subLemma.style.display = 'none';
+                    lemmaIndex.checked = false;
+                }
+            }
+        </script>
+    </body>
+</html>

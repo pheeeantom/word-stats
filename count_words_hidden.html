@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WORD STATS</title>
+    </head>
+    <body>
+        <form method="post" enctype="multipart/form-data" action="/stats">
+            <p>Орфографические ошибки если есть будут учитываться для расчета КЛР!</p>
+            <p>Слова будут лемматизированы но учитываться будут все слова для расчета КЛР</p>
+            <p>Учитываются только русские слова</p>
+            <p>Для расчета КЛР используются только последние 50_000 слов</p>
+            <div>
+                <label for="file">Выберите .txt книгу для анализа</label>
+                <input type="file" id="file" name="file" multiple />
+            </div>
+            <div>
+                <button type="submit">Анализировать</button>
+            </div>
+        </form>
+        <form method="post" enctype="multipart/form-data" action="/stats_from_tg">
+            <p>Орфографические ошибки если есть НЕ будут учитываться для расчета КЛР но будут распечатаны!</p>
+            <p>Слова НЕ будут лемматизированы</p>
+            <p>Учитываются только русские слова</p>
+            <p>Для расчета КЛР используются только последние 50_000 слов</p>
+            <div>
+                <label for="file">Выберите .json экспорт диалога из телеграма для анализа</label>
+                <input type="file" id="file" name="file" multiple />
+                <label for="from">Напишите ник</label>
+                <input type="text" id="from" name="from" />
+            </div>
+            <div>
+                <button type="submit">Анализировать</button>
+            </div>
+        </form>
+    </body>
+</html>
