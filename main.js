@@ -134,7 +134,7 @@ async function lemmatize(stats) {
     const lemmasEntries = Object.entries(stats);
     let count = Math.ceil(lemmasEntries.length / 100);
     for (let i = 0; i < count * 100; i += 100) {
-        await runPythonScript('C:/Users/oleg1/Documents/word-stats/script.py', lemmasEntries.slice(i, i + 100).map(entry => entry.join(':')).toString(), lemmas);
+        await runPythonScript(__dirname + '/script.py', lemmasEntries.slice(i, i + 100).map(entry => entry.join(':')).toString(), lemmas);
     }
     return lemmas;
 }
